@@ -1,0 +1,38 @@
+<h1>Real Time Products</h1>
+
+{{#if products}}
+  <ul>
+    {{#each products}}
+      <li>{{this.title}} - ${{this.price}}</li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No hay productos disponibles.</p>
+{{/if}}
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
+<!--
+<script>
+  const socket = io();
+  socket.on('updateProducts', (products) => {
+    const productList = document.querySelector('ul');
+    productList.innerHTML = '';
+
+    if (products.length > 0) {
+      products.forEach((product) => {
+        const listItem = document.createElement('li');
+        listItem.innerText = `${product.title} - $${product.price}`;
+        productList.appendChild(listItem);
+      });
+    } else {
+      const noProductsMessage = document.createElement('p');
+      noProductsMessage.innerText = 'No hay productos disponibles.';
+      productList.appendChild(noProductsMessage);
+    }
+  });
+</script>
+-->
+
+
+
